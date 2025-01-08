@@ -35,6 +35,7 @@ public class ResultPage extends PageTools {
         return  Actions.bookAktions().formatAuthorString(result.$(resultAuthorsName).text());
     }
     public ArrayList<Book> getBooks(){
+        logInfo("Get all results");
         ArrayList<Book> books = new ArrayList<Book>();
         for(SelenideElement result : getResults())
             books.add(new Book(getResultName(result),getResultBestsellerMark(result),getResultPrices(result),getResultAuthorsName(result)));

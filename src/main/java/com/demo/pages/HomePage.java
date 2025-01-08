@@ -10,10 +10,13 @@ public class HomePage extends PageTools {
     private final By searchingBar = By.xpath("//input[@id='twotabsearchtextbox']");
     private final By categorySelector = By.xpath("//select[@id='searchDropdownBox']");
 
+
     public void search(String searchObject) {
+        logInfo("Search by name: "+ searchObject);
         typeWithEnter(searchObject, searchingBar);
     }
     public void selectCategory(String searchObject) {
+        logInfo("Select category "+ searchObject);
         $(categorySelector).selectOption(searchObject);
     }
     public void waitForSearchForm() {

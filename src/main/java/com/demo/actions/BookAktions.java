@@ -1,10 +1,11 @@
 package com.demo.actions;
 
 import com.demo.Data.Book;
+import com.demo.core.base.PageTools;
 
 import java.util.ArrayList;
 
-public class BookAktions {
+public class BookAktions extends PageTools {
 
     public String formatAuthorString(String authorsNames){
         String temp = authorsNames;
@@ -23,6 +24,7 @@ public class BookAktions {
         return temp.trim();
     }
     public boolean booksJavaCheck(ArrayList<Book> books, Book book) {
+        logInfo("Check if list of books contains needed book");
         return books.contains(book);
     }
 }

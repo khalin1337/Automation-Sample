@@ -31,6 +31,7 @@ public class ProductPage extends PageTools {
         return !getElementText(productBestsellerMark).isEmpty();
     }
     public Book getNeededBook(String Url){
+        logInfo("Get needed book");
         open(Url);
         return new Book(getName(),getBestsellerMark(),getProductPrice(),getAuthorsNames());
     }
