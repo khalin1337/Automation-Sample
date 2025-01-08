@@ -3,6 +3,8 @@ package com.demo.pages;
 import com.demo.core.base.PageTools;
 import org.openqa.selenium.By;
 
+import static com.codeborne.selenide.Selenide.$;
+
 public class HomePage extends PageTools {
 
     private final By searchingBar = By.xpath("//input[@id='twotabsearchtextbox']");
@@ -12,7 +14,7 @@ public class HomePage extends PageTools {
         typeWithEnter(searchObject, searchingBar);
     }
     public void selectCategory(String searchObject) {
-        selectOption(searchObject, categorySelector);
+        $(categorySelector).selectOption(searchObject);
     }
     public void waitForSearchForm() {
         waitForElementVisibility(searchingBar);

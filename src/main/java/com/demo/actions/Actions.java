@@ -4,18 +4,12 @@ public class Actions {
     /**
      * Page actions
      */
-    private static LoginActions loginActions;
+    private static BookAktions bookAktions;
     private static MainActions mainActions;
 
     /**
      * This function returns an instance of `LoginActions`
      */
-    public static LoginActions loginActions() {
-        if (loginActions == null) {
-            loginActions = new LoginActions();
-        }
-        return loginActions;
-    }
 
     /**
      * This function returns an instance of `MainActions`
@@ -25,5 +19,11 @@ public class Actions {
             mainActions = new MainActions();
         }
         return mainActions;
+    }
+    public static BookAktions bookAktions() {
+        if (bookAktions == null) {
+            bookAktions = new BookAktions();
+        }
+        return bookAktions;
     }
 }
