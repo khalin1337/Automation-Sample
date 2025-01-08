@@ -11,6 +11,7 @@ import org.openqa.selenium.support.Color;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
@@ -54,6 +55,9 @@ public class PageTools extends AllureLogger {
 
     protected SelenideElement shouldBe(Condition condition, By by, Object... args) {
         return $(byLocator(by, args)).shouldBe(condition);
+    }
+    protected SelenideElement shouldBe(Condition condition, SelenideElement element) {
+        return element.shouldBe(condition);
     }
 
     protected SelenideElement shouldMatchText(String pattern, By by, Object... args) {
@@ -188,6 +192,10 @@ public class PageTools extends AllureLogger {
         logInfo(getPreviousMethodNameAsText() + " --> " + option + ", element --> " + byLocator(by, args));
         shouldBe(Condition.visible, by, args).selectOption(option);
     }
+    protected void selectHiddenOption(String option, By by, Object... args) {
+        logInfo(getPreviousMethodNameAsText() + " --> " + option + ", element --> " + byLocator(by, args));
+        shouldBe(Condition.hidden, by, args).selectOption(option);
+    }
 
     protected void mouseHover(By by, Object... args) {
         logInfo(getPreviousMethodNameAsText() + ", element --> " + byLocator(by, args));
@@ -266,6 +274,15 @@ public class PageTools extends AllureLogger {
         logInfo(getPreviousMethodNameAsText() + ", element --> " + byLocator(by, args));
         return shouldBe(Condition.enabled, by, args).text();
     }
+    protected String getChildElementText(SelenideElement element,By by) {
+        logInfo(getPreviousMethodNameAsText() + ", element --> " + element.$(by));
+        return shouldBe(Condition.enabled, element).$(by).text();
+    }
+    protected List<String> getChildElementsText(SelenideElement element, By by) {
+        logInfo(getPreviousMethodNameAsText() + ", element --> " + element.$$(by));
+        return shouldBe(Condition.enabled, element).$$(by).texts();
+    }
+
 
     protected String getElementAttributeValue(String attr, By by, Object... args) {
         logInfo(getPreviousMethodNameAsText() + ", element --> " + byLocator(by, args));

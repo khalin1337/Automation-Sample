@@ -17,7 +17,7 @@ public class HomePage extends PageTools {
     }
     public void selectCategory(String searchObject) {
         logInfo("Select category "+ searchObject);
-        $(categorySelector).selectOption(searchObject);
+        selectHiddenOption(searchObject, categorySelector);
     }
     public void waitForSearchForm() {
         waitForElementVisibility(searchingBar);

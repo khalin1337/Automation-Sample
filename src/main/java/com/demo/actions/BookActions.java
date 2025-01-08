@@ -5,21 +5,22 @@ import com.demo.core.base.PageTools;
 
 import java.util.ArrayList;
 
-public class BookAktions extends PageTools {
+public class BookActions extends PageTools {
 
     public String formatAuthorString(String authorsNames){
         String temp = authorsNames;
-        if(!temp.contains("(Author)")) {
-            temp = temp.replace("and", ",");
-            temp = temp.replace(", et al.", "");
-            int endIndex = authorsNames.length();
-            if (temp.contains("|")) endIndex = temp.lastIndexOf("|");
-            temp = authorsNames.substring(authorsNames.indexOf("by") + 2, endIndex);
+        if(temp.contains("(Author)")) {
+            temp = temp.replace(" (Author)","");
+            temp = temp.replace("by","");
+            temp = temp.trim();
+
         }
-        else{
-           temp = temp.replace(" (Author)","");
-           temp = temp.replace("by","");
-           temp = temp.trim();
+        else {
+            temp = temp.replace(" and", ",");
+            temp = temp.replace(", et al.", "");
+            int endIndex = temp.length();
+            if (temp.contains("|")) endIndex = temp.lastIndexOf("|");
+            temp = temp.substring(temp.indexOf("by") + 2, endIndex);
         }
         return temp.trim();
     }

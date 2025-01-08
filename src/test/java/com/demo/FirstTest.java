@@ -9,6 +9,7 @@ import com.demo.pages.Pages;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
@@ -25,7 +26,7 @@ public class FirstTest extends BaseTest {
         logInfo("searchName is " + searchWord);
         String searchOption = System.getProperty("searchOption", "default_value");
         logInfo("searchCategory is " + searchOption);
-        ArrayList<Book> books = new ArrayList<Book>();
+        ArrayList<Book> books;
         Book book;
 
         //Pages.homePage().waitForSearchForm();
@@ -34,7 +35,8 @@ public class FirstTest extends BaseTest {
 
         books = Pages.resultPage().getBooks();
         book = Pages.productPage().getNeededBook("https://a.co/d/2W0yTbv");
+        System.out.println( book.toString() );
 
-        Actions.bookAktions().booksJavaCheck(books,book);
+        Assert.assertTrue(Actions.bookAktions().booksJavaCheck(books,book),"Books does not contain needed book:");
     }
 }

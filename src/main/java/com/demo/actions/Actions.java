@@ -4,7 +4,7 @@ public class Actions {
     /**
      * Page actions
      */
-    private static BookAktions bookAktions;
+    private static BookActions bookAktions;
     private static MainActions mainActions;
 
     /**
@@ -20,9 +20,9 @@ public class Actions {
         }
         return mainActions;
     }
-    public static BookAktions bookAktions() {
+    public static BookActions bookAktions() {
         if (bookAktions == null) {
-            bookAktions = new BookAktions();
+            bookAktions = new BookActions();
         }
         return bookAktions;
     }

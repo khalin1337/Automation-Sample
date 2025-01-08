@@ -23,22 +23,24 @@ public class ResultPage extends PageTools {
         return getElements(results);
     }
     private String getResultName(SelenideElement result){
-        return result.$(resultsName).text();
+        return getChildElementText(result,resultsName);
     }
     private ArrayList<String> getResultPrices(SelenideElement result){
-        return (ArrayList<String>) result.$$(resultsPrises).texts();
+        return (ArrayList<String>) getChildElementsText(result,resultsPrises);
     }
     private boolean getResultBestsellerMark(SelenideElement result){
-        return !result.$(resultBestsellerMark).text().isEmpty();
+        return !getChildElementText(result,resultBestsellerMark).isEmpty();
     }
     private String getResultAuthorsName(SelenideElement result){
-        return  Actions.bookAktions().formatAuthorString(result.$(resultAuthorsName).text());
+        return  Actions.bookAktions().formatAuthorString(getChildElementText(result,resultAuthorsName));
     }
     public ArrayList<Book> getBooks(){
         logInfo("Get all results");
         ArrayList<Book> books = new ArrayList<Book>();
-        for(SelenideElement result : getResults())
+        for(SelenideElement result : getResults()){
             books.add(new Book(getResultName(result),getResultBestsellerMark(result),getResultPrices(result),getResultAuthorsName(result)));
+            System.out.println(books.get(books.size()-1).toString());
+        }
         return books;
     }
 

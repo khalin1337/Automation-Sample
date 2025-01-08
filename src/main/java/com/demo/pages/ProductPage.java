@@ -7,6 +7,7 @@ import org.openqa.selenium.*;
 
 import java.util.ArrayList;
 
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class ProductPage extends PageTools {
@@ -14,7 +15,7 @@ public class ProductPage extends PageTools {
     private final By productName = By.xpath("//span[@id='productTitle']");
     private final By productPrice = By.xpath("//span/a//span[@class='a-size-base a-color-secondary']");
     private final By productAuthorsNames = By.xpath("//div[@id='bylineInfo']");
-    private final By productBestsellerMark = By.xpath("//div[@id='zeitgeistBadge_feature_div']");
+    private final By productBestsellerMark = By.xpath("//div[@class='zg-badge-wrapper']");
 
     private String getName(){
         return getElementText(productName);
@@ -28,7 +29,7 @@ public class ProductPage extends PageTools {
         return temp ;
     }
     private boolean getBestsellerMark(){
-        return !getElementText(productBestsellerMark).isEmpty();
+        return $(productBestsellerMark).exists();
     }
     public Book getNeededBook(String Url){
         logInfo("Get needed book");

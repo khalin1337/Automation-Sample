@@ -37,6 +37,6 @@ public class Book {
         if(!(obj instanceof Book book)) {
             return false;
         }
-        return this.name.equals(book.getName()) && book.getAuthorName().contains(this.authorName) && this.prices.contains(book.getPrices()) && this.bestseller == book.getBestsellerMark();
+        return this.name.equals(book.getName()) && this.authorName.contains(book.getAuthorName()) && this.prices.equals(book.getPrices()) && this.bestseller == book.getBestsellerMark();
     }
 }
