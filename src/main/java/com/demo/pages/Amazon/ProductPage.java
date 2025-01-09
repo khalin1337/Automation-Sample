@@ -1,4 +1,4 @@
-package com.demo.pages;
+package com.demo.pages.Amazon;
 
 import com.demo.Data.Book;
 import com.demo.actions.Actions;
@@ -29,7 +29,7 @@ public class ProductPage extends PageTools {
         return temp ;
     }
     private boolean getBestsellerMark(){
-        return $(productBestsellerMark).exists();
+        return isElementExist(productBestsellerMark);
     }
     public Book getNeededBook(String Url){
         logInfo("Get needed book");

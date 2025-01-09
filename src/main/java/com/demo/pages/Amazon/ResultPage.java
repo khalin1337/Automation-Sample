@@ -1,4 +1,4 @@
-package com.demo.pages;
+package com.demo.pages.Amazon;
 
 import com.codeborne.selenide.*;
 import com.demo.Data.Book;
@@ -39,7 +39,7 @@ public class ResultPage extends PageTools {
         ArrayList<Book> books = new ArrayList<Book>();
         for(SelenideElement result : getResults()){
             books.add(new Book(getResultName(result),getResultBestsellerMark(result),getResultPrices(result),getResultAuthorsName(result)));
-            System.out.println(books.get(books.size()-1).toString());
+            //System.out.println(books.get(books.size()-1).toString());
         }
         return books;
     }

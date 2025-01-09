@@ -1,11 +1,13 @@
 package com.demo;
 
 import com.beust.ah.A;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.demo.Data.Book;
 import com.demo.actions.Actions;
 import com.demo.core.base.BaseTest;
 import com.demo.pages.Pages;
+import com.demo.utils.Constants;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
@@ -22,6 +24,7 @@ public class FirstTest extends BaseTest {
 
     @Test(description = "FirstTest")
     public void firstTest() {
+        Selenide.open(Constants.URLAmazon);
         String searchWord = System.getProperty("searchWord", "default_value");
         logInfo("searchName is " + searchWord);
         String searchOption = System.getProperty("searchOption", "default_value");
@@ -34,8 +37,8 @@ public class FirstTest extends BaseTest {
         Pages.homePage().search(searchWord);
 
         books = Pages.resultPage().getBooks();
-        book = Pages.productPage().getNeededBook("https://a.co/d/2W0yTbv");
-        System.out.println( book.toString() );
+        book = Pages.productPage().getNeededBook("https://a.co/d/88yKPcb");
+        //System.out.println( book.toString() );
 
         Assert.assertTrue(Actions.bookAktions().booksJavaCheck(books,book),"Books does not contain needed book:");
     }

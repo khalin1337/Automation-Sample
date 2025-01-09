@@ -262,10 +262,9 @@ public class PageTools extends AllureLogger {
         return isCondition(Condition.checked, by, args);
     }
 
-//    protected boolean isElementExist{
-//        return isCondition()
-//        return !BaseTest.driver.findElements(locator).isEmpty();
-//    }
+    protected boolean isElementExist(By by){
+        return $(by).exists();
+    }
 
     /**
      * Getters

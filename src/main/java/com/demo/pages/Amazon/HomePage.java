@@ -1,4 +1,4 @@
-package com.demo.pages;
+package com.demo.pages.Amazon;
 
 import com.demo.core.base.PageTools;
 import org.openqa.selenium.By;
@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.$;
 
 public class HomePage extends PageTools {
-
     private final By searchingBar = By.xpath("//input[@id='twotabsearchtextbox']");
     private final By categorySelector = By.xpath("//select[@id='searchDropdownBox']");
 
@@ -18,9 +17,6 @@ public class HomePage extends PageTools {
     public void selectCategory(String searchObject) {
         logInfo("Select category "+ searchObject);
         selectHiddenOption(searchObject, categorySelector);
-    }
-    public void waitForSearchForm() {
-        waitForElementVisibility(searchingBar);
     }
 
 }

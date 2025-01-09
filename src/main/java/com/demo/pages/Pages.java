@@ -1,6 +1,9 @@
 package com.demo.pages;
 
 import com.demo.core.allure.AllureLogger;
+import com.demo.pages.Amazon.HomePage;
+import com.demo.pages.Amazon.ProductPage;
+import com.demo.pages.Amazon.ResultPage;
 
 public class Pages extends AllureLogger {
     /**
