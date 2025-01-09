@@ -1,17 +1,15 @@
-package com.demo.pages;
+package com.demo.pages.Rozetka;
 
 import com.demo.core.allure.AllureLogger;
-import com.demo.pages.Amazon.HomePage;
-import com.demo.pages.Amazon.ProductPage;
-import com.demo.pages.Amazon.ResultPage;
 
 public class Pages extends AllureLogger {
     /**
      * Pages
      */
     private static HomePage homePage;
-    private static ProductPage productPage;
+    private static CartPage cartPage;
     private static ResultPage resultPage;
+    private static ProductPage productPage;
 
     /**
      * This function return an instance of `NavigationPage`
@@ -34,5 +32,11 @@ public class Pages extends AllureLogger {
             productPage = new ProductPage();
         }
         return productPage;
+    }
+    public static CartPage cartPage() {
+        if (cartPage == null) {
+            cartPage = new CartPage();
+        }
+        return cartPage;
     }
 }

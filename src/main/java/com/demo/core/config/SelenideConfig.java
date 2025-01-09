@@ -97,7 +97,7 @@ public class SelenideConfig {
                 throw new IllegalArgumentException("Unsupported browser: " + browser);
         }
 
-        Configuration.browserSize = "1440x900";
+        Configuration.browserSize = "1920x1080";
         Configuration.browserCapabilities = caps;
         Configuration.fastSetValue = false;
         Configuration.savePageSource = false;

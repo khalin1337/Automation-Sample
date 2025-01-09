@@ -1,12 +1,10 @@
 package com.demo;
 
-import com.beust.ah.A;
 import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.SelenideElement;
 import com.demo.Data.Book;
 import com.demo.actions.Actions;
 import com.demo.core.base.BaseTest;
-import com.demo.pages.Pages;
+import com.demo.pages.Amazon.Pages;
 import com.demo.utils.Constants;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -15,7 +13,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @Epic("Amazon Test")
 @Feature("First serch page test")
