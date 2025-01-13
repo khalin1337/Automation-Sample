@@ -22,9 +22,9 @@ public class FirstTest extends BaseTest {
     @Test(description = "FirstTest")
     public void firstTest() {
         Selenide.open(Constants.URLAmazon);
-        String searchWord = System.getProperty("searchWord", "default_value");
+        String searchWord = System.getProperty("searchWord", "Java");
         logInfo("searchName is " + searchWord);
-        String searchOption = System.getProperty("searchOption", "default_value");
+        String searchOption = System.getProperty("searchOption", "Books");
         logInfo("searchCategory is " + searchOption);
         ArrayList<Book> books;
         Book book;

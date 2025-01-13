@@ -12,15 +12,15 @@ public class CartPage extends PageTools {
     private final By cartContinueButton = By.xpath("//button[contains(@class,'cart-footer__continue')]");
 
     public void clickOnMenuToggleButton(){
-        waitForElementVisibility(menuToggleButton);
+        waitForElementClickable(menuToggleButton);
         click(menuToggleButton);
     }
     public void clickOnContinueButton(){
-        //waitForElementVisibility(cartContinueButton);
+        waitForElementVisibility(cartContinueButton);
         click(cartContinueButton);
     }
     private String getCartProductTile(){
-        //waitForElementVisibility(cartProductTile);
+        waitForElementVisibility(cartProductTile);
         return getElementText(cartProductTile);
     }
     public void clickOnDeleteButton(){
@@ -31,7 +31,7 @@ public class CartPage extends PageTools {
             return getElementText(emptyCartHeading).equals("Кошик порожній");
     }
     public boolean isCartPageContain(String value) {
-            return getCartProductTile().contains(value);
+        return getCartProductTile().toLowerCase().contains(value.toLowerCase());
     }
 
 }

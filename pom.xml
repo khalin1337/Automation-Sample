@@ -1,7 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.demo</groupId>
@@ -23,8 +20,7 @@
         <test.resource.dir>src${file.separator}test${file.separator}resources</test.resource.dir>
         <uploads.dir>${test.resource.dir}${file.separator}uploads${file.separator}</uploads.dir>
         <suiteXmlFile>AllTest</suiteXmlFile>
-        <main.resource.dir>${project.basedir}${file.separator}src${file.separator}main${file.separator}resources
-        </main.resource.dir>
+        <main.resource.dir>${project.basedir}${file.separator}src${file.separator}main${file.separator}resources</main.resource.dir>
     </properties>
 
     <dependencies>
@@ -123,38 +119,6 @@
             <plugins>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>2.22.2</version>
-                    <configuration>
-                        <testFailureIgnore>true</testFailureIgnore> <!-- или false в зависимости от требований -->
-                        <argLine>
-                            -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-                        </argLine>
-                        <suiteXmlFiles>
-                            <suiteXmlFile>${test.resource.dir}${file.separator}${suiteXmlFile}.xml</suiteXmlFile>
-                        </suiteXmlFiles>
-                        <systemPropertyVariables>
-                            <uploads.dir>${uploads.dir}</uploads.dir>
-                        </systemPropertyVariables>
-                        <trimStackTrace>false</trimStackTrace>
-                        <properties>
-                            <property>
-                                <name>listener</name>
-                                <value>io.qameta.allure.junit5.AllureJunit5</value>
-                            </property>
-                        </properties>
-                        <systemProperties>
-                            <property>
-                                <name>allure.results.directory</name>
-                                <value>${project.build.directory}/../allure-results</value>
-                            </property>
-                        </systemProperties>
-                    </configuration>
-                </plugin>
-
-
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-project-info-reports-plugin</artifactId>
                     <version>3.0.0</version>
                 </plugin>
@@ -190,6 +154,20 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+        <plugins>
+      <plugin>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>3.3.0</version>
+        <executions>
+          <execution>
+            <id>getClasspathFilenames</id>
+            <goals>
+              <goal>properties</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
     </build>
 
 </project>

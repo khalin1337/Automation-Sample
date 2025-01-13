@@ -13,7 +13,7 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 @Listeners({TestListener.class})
 public class BaseTest extends AllureLogger {
 
-    @BeforeSuite(alwaysRun = true, description = "Opening web browser...")
+    @BeforeClass(alwaysRun = true, description = "Opening web browser...")
     public void setUp() throws Exception {
 
         logInfo("Creating web driver configuration..."); //test
@@ -23,7 +23,7 @@ public class BaseTest extends AllureLogger {
         //Selenide.open(Constants.URL);
     }
 
-    @AfterSuite(alwaysRun = true, description = "Closing web browser...")
+    @AfterClass(alwaysRun = true, description = "Closing web browser...")
     public void tearDown() {
         Selenide.closeWebDriver();
         logInfo("Web driver closed!");

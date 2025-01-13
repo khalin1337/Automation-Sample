@@ -17,11 +17,12 @@ public class ProductPage extends PageTools {
         click(cartButton);
     }
     public  boolean isProductTittleContain(String value){
-        logInfo("Check that product tittle contain keyword" + value);
-        return getProductTittle().contains(value);
+        logInfo("Check that product tittle" + getProductTittle() + " contain keyword " + value);
+        System.out.println("Check that product tittle " + getProductTittle() + " contain keyword " + value);
+        return getProductTittle().toLowerCase().contains(value.toLowerCase());
     }
     private String getProductTittle(){
-        //waitForElementVisibility(productTittle);
+        waitForElementPresent(productTittle);
         return getElementText(productTittle);
     }
 }

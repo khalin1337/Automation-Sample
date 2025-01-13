@@ -15,7 +15,8 @@ public class ResultPage extends PageTools {
        return getElementsWithZeroOptionWithWait(1,searchingResults);
     }
     private void passAggeLimit(){
-        clickIfExist(aggeLimitButton);
+        if(isElementExist(aggeLimitButton))
+        click(aggeLimitButton);
     }
     public void clickOnFirstResult(){
         passAggeLimit();
