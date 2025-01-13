@@ -4,6 +4,7 @@ import com.codeborne.selenide.WebDriverRunner;
 import com.demo.core.allure.AllureLogger;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
@@ -35,5 +36,9 @@ public class BrowserStackTest extends AllureLogger {
         driver = new RemoteWebDriver(new URL(String.format("https://%s:%s@hub-cloud.browserstack.com/wd/hub", userName, accessKey)), capabilities);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         WebDriverRunner.setWebDriver(driver);
+    }
+    @AfterClass
+    public void tearDown(){
+        driver.close();
     }
 }

@@ -4,30 +4,30 @@
 
     <test name = "Test1">
         <parameter name="browser" value="chrome"/>
-        <parameter name="searchWord" value="Iphone 15"/>
+        <parameter name="keyWords" value="Java"/>
         <classes>
-            <class name="com.demo.Rozetka.RozetkaTest"/>
+            <class name="com.demo.GoogleTest.GoogleSearchTest"/>
         </classes>
     </test>
-    <test name = "Test2">
+   <test name = "Test2">
         <parameter name="browser" value="firefox"/>
-        <parameter name="searchWord" value="Iphone 16"/>
+        <parameter name="keyWords" value="Java"/>
         <classes>
-            <class name="com.demo.Rozetka.RozetkaTest"/>
+            <class name="com.demo.GoogleTest.GoogleSearchTest"/>
         </classes>
     </test>
     <test name = "Test3">
         <parameter name="browser" value="firefox"/>
-        <parameter name="searchWord" value="Iphone 15"/>
+        <parameter name="keyWords" value="Iphone 15"/>
         <classes>
-            <class name="com.demo.Rozetka.RozetkaTest"/>
+            <class name="com.demo.GoogleTest.GoogleSearchTest"/>
         </classes>
     </test>
     <test name = "Test4">
         <parameter name="browser" value="chrome"/>
-        <parameter name="searchWord" value="Iphone 16"/>
+        <parameter name="keyWords" value="Iphone 16"/>
         <classes>
-            <class name="com.demo.Rozetka.RozetkaTest"/>
+            <class name="com.demo.GoogleTest.GoogleSearchTest"/>
         </classes>
     </test>
 
