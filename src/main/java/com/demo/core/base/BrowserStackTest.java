@@ -1,4 +1,4 @@
-package com.demo.Rozetka;
+package com.demo.core.base;
 
 import com.codeborne.selenide.WebDriverRunner;
 import com.demo.core.allure.AllureLogger;
