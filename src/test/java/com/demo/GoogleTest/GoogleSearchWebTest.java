@@ -1,6 +1,7 @@
 package com.demo.GoogleTest;
 
 import com.codeborne.selenide.Selenide;
+import com.demo.actions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import com.demo.core.base.BrowserStackWebTest;
 import com.demo.pages.GoogleSearch.Pages;
@@ -26,13 +27,15 @@ public class GoogleSearchWebTest extends BrowserStackWebTest {
         sessionId = ((RemoteWebDriver) getWebDriver()).getSessionId().toString();
 
         Pages.homePage().searchByWord(keyWord);
-        boolean result = Pages.resultPage().isAllResultsContainsSearchWord(keyWord);
 
-        if(result)endSession(sessionId, userName, accessKey, true, "Test completed successfully");
-        else endSession(sessionId, userName, accessKey, false, "Not all results contain the keyword");
+        if (Pages.resultPage().isAllResultsContainsSearchWord(keyWord))
+            Actions.browserStackActions().setWebTestStatus
+                    (userName, accessKey, true, "Test completed successfully");
+        else
+            Actions.browserStackActions().setWebTestStatus
+                    (userName, accessKey, false, "Not all results contain the keyword");
 
-
-        Assert.assertTrue(result,
-                "Not all results" + Pages.resultPage().getAllResults() + "contain the keyword: " + keyWord);
+        Assert.assertTrue(Pages.resultPage().isAllResultsContainsSearchWord(keyWord),
+                "Not all results " + Pages.resultPage().getAllResults() + " contain the keyword: " + keyWord);
     }
 }

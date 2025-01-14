@@ -49,28 +49,5 @@ public class BrowserStackWebTest extends AllureLogger {
         closeWebDriver();
     }
 
-    public static void setTestStatus(String sessionId, String username, String accessKey, boolean isSuccess, String reason) {
-        try {
-            URL url = new URL("https://api.browserstack.com/automate/sessions/" + sessionId + ".json");
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            String auth = username + ":" + accessKey;
-            String encodedAuth = Base64.getEncoder().encodeToString(auth.getBytes());
-            connection.setRequestProperty("Authorization", "Basic " + encodedAuth);
-            connection.setDoOutput(true);
-            connection.setRequestMethod("PUT");
-            connection.setRequestProperty("Content-Type", "application/json");
 
-            String status = isSuccess ? "passed" : "failed";
-            String body = "{\"status\": \"" + status + "\", \"reason\": \"" + reason + "\"}";
-
-            connection.getOutputStream().write(body.getBytes());
-            connection.getInputStream();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void endSession(String sessionId, String username, String accessKey, boolean isSuccess, String reason) {
-        setTestStatus(sessionId, username, accessKey, isSuccess, reason);
-    }
 }

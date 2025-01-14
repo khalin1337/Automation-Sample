@@ -2,7 +2,7 @@ package com.demo.Rozetka;
 
 import com.codeborne.selenide.Selenide;
 import com.demo.core.base.BrowserStackWebTest;
-import com.demo.pages.Rozetka.Pages;
+import com.demo.pages.RozetkaWeb.Pages;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;

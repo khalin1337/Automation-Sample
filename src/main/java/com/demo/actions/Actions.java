@@ -5,6 +5,7 @@ public class Actions {
      * Page actions
      */
     private static BookActions bookAktions;
+    private static BrowserStackActions browserStackActions;
     private static MainActions mainActions;
 
     /**
@@ -20,10 +21,17 @@ public class Actions {
         }
         return mainActions;
     }
-    public static BookActions bookAktions() {
+    public static BookActions bookActions() {
         if (bookAktions == null) {
             bookAktions = new BookActions();
         }
         return bookAktions;
     }
+    public static BrowserStackActions browserStackActions() {
+        if (browserStackActions == null) {
+            browserStackActions = new BrowserStackActions();
+        }
+        return browserStackActions;
+    }
+
 }

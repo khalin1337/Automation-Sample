@@ -21,7 +21,7 @@ public class ProductPage extends PageTools {
         return getElementText(productName);
     }
     private String getAuthorsNames(){
-        return Actions.bookAktions().formatAuthorString(getElementText(productAuthorsNames));
+        return Actions.bookActions().formatAuthorString(getElementText(productAuthorsNames));
     }
     private ArrayList<String> getProductPrice(){
         ArrayList<String> temp = new ArrayList<String>();

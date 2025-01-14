@@ -32,7 +32,7 @@ public class ResultPage extends PageTools {
         return !getChildElementText(result,resultBestsellerMark).isEmpty();
     }
     private String getResultAuthorsName(SelenideElement result){
-        return  Actions.bookAktions().formatAuthorString(getChildElementText(result,resultAuthorsName));
+        return  Actions.bookActions().formatAuthorString(getChildElementText(result,resultAuthorsName));
     }
     public ArrayList<Book> getBooks(){
         logInfo("Get all results");

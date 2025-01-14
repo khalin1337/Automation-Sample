@@ -37,6 +37,6 @@ public class FirstTest extends BaseTest {
         book = Pages.productPage().getNeededBook("https://a.co/d/88yKPcb");
         //System.out.println( book.toString() );
 
-        Assert.assertTrue(Actions.bookAktions().booksJavaCheck(books,book),"Books does not contain needed book:");
+        Assert.assertTrue(Actions.bookActions().booksJavaCheck(books,book),"Books does not contain needed book:");
     }
 }

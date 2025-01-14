@@ -1,4 +1,4 @@
-package com.demo.pages.Rozetka;
+package com.demo.pages.RozetkaWeb;
 
 import com.demo.core.base.PageTools;
 import org.openqa.selenium.By;
