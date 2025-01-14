@@ -111,6 +111,12 @@
             <version>13.0</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide-appium</artifactId>
+            <version>6.19.1</version>
+        </dependency>
+
 
     </dependencies>
 

@@ -8,7 +8,6 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
-import java.io.File;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -17,15 +16,14 @@ import java.util.Base64;
 import java.util.HashMap;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
-public class BrowserStackTest extends AllureLogger {
+public class BrowserStackWebTest extends AllureLogger {
     public RemoteWebDriver driver;
     public String sessionId;
     public static String userName, accessKey;
 
 
-    public BrowserStackTest() {
+    public BrowserStackWebTest() {
         userName = System.getenv("BROWSERSTACK_USERNAME");
         accessKey = System.getenv("BROWSERSTACK_ACCESS_KEY");
     }

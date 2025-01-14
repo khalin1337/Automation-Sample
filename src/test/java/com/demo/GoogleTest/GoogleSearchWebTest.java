@@ -2,8 +2,7 @@ package com.demo.GoogleTest;
 
 import com.codeborne.selenide.Selenide;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import com.demo.core.base.BaseTest;
-import com.demo.core.base.BrowserStackTest;
+import com.demo.core.base.BrowserStackWebTest;
 import com.demo.pages.GoogleSearch.Pages;
 import com.demo.utils.Constants;
 import io.qameta.allure.Epic;
@@ -18,7 +17,7 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 @Epic("Google Search Test")
 @Feature("Serch test")
 @Owner("QA Khalin Yevhen")
-public class GoogleSearchTest extends BrowserStackTest {
+public class GoogleSearchWebTest extends BrowserStackWebTest {
 
     @Test(priority = 1)
     @Parameters("keyWords")

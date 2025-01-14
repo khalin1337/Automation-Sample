@@ -1,7 +1,7 @@
 package com.demo.Rozetka;
 
 import com.codeborne.selenide.Selenide;
-import com.demo.core.base.BrowserStackTest;
+import com.demo.core.base.BrowserStackWebTest;
 import com.demo.pages.Rozetka.Pages;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -13,7 +13,7 @@ import com.demo.utils.Constants;
 @Epic("Rozetka Test")
 @Feature("Serch page test")
 @Owner("QA Khalin Yevhen")
-public class RozetkaTest extends BrowserStackTest {
+public class RozetkaWebTest extends BrowserStackWebTest {
 
     @Test(priority = 1)
     @Parameters({"searchWord"})
