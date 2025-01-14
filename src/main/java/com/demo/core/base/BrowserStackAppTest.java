@@ -1,6 +1,7 @@
 package com.demo.core.base;
 
 import com.codeborne.selenide.WebDriverRunner;
+import com.demo.actions.Actions;
 import com.demo.core.allure.AllureLogger;
 import com.demo.utils.SelenideTools;
 import io.appium.java_client.android.AndroidDriver;
@@ -9,7 +10,9 @@ import io.appium.java_client.remote.AutomationName;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.opentest4j.AssertionFailedError;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
@@ -25,6 +28,8 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 public class BrowserStackAppTest extends AllureLogger {
 
     public AndroidDriver driver;
+    protected boolean result;
+    protected String erMassage;
     public static String userName, accessKey;
 
 
@@ -69,7 +74,14 @@ public class BrowserStackAppTest extends AllureLogger {
     }*/
     @AfterClass
     public void tearDown(){
-        SelenideTools.sleep(3);
-        closeWebDriver();
+            if(result)
+                Actions.browserStackActions().setAppTestStatus
+                    (userName, accessKey, true, "Test completed successfully");
+            else
+                Actions.browserStackActions().setAppTestStatus
+                        (userName, accessKey, false, erMassage);
+            SelenideTools.sleep(3);
+            closeWebDriver();
+
     }
 }

@@ -14,57 +14,42 @@ public class RozetkaAppTest extends BrowserStackAppTest {
     private final String keyword = System.getProperty("keyword","123123");
     @Test(priority = 1)
     public void searchTest() throws InterruptedException {
+        erMassage = "Result page was not loaded";
 
         Pages.homePage().startApp();
         Pages.homePage().clickSearchOption();
         Pages.homePage().searchByKeyWord(keyword);
-        boolean result = Pages.productPage().isResultPageLoad();
+        result = Pages.productPage().isResultPageLoad();
 
-        if (!result)
-            Actions.browserStackActions().setAppTestStatus
-                    (userName, accessKey, false, "Result page was not loaded");
-
-        Assert.assertTrue(result,"Result page was not loaded");
+        Assert.assertTrue(result,erMassage);
     }
     @Test(priority = 2,dependsOnMethods = "searchTest")
     public void productPageTest() throws InterruptedException {
+        erMassage = "Product title does not contain searching word: " + keyword;
 
         Pages.productPage().selectResultByNumber(1);
-        boolean result = Pages.productPage().isProductNameContainsWord(keyword);
+        result = Pages.productPage().isProductNameContainsWord(keyword);
 
-        if (!result)
-            Actions.browserStackActions().setAppTestStatus
-                    (userName, accessKey, false, "Product title does not contain searching word: " + keyword);
-
-        Assert.assertTrue(result,"Product title does not contain searching word: " + keyword);
+        Assert.assertTrue(result,erMassage);
     }
     @Test(priority = 3,dependsOnMethods = "productPageTest")
     public void productNameInCartTest() throws InterruptedException {
+        erMassage = "Cart page do not contain keyword: " + keyword;
 
         Pages.productPage().addProductToCart();
         Pages.productPage().openCart();
-        boolean result = Pages.cartPage().isProductNameContainsWord(keyword);
+        result = !Pages.cartPage().isProductNameContainsWord(keyword);
 
-        if (!result)
-            Actions.browserStackActions().setAppTestStatus
-                    (userName, accessKey, false, "Cart page do not contain keyword: " + keyword);
-
-        Assert.assertTrue(result,"Cart page do not contain keyword: " + keyword);
+        Assert.assertTrue(result,erMassage);
     }
     @Test(priority = 4,dependsOnMethods = "productNameInCartTest")
     public void deletingFromShoppingCartTest() throws InterruptedException {
+        erMassage = "Cart is not empty";
 
         Pages.cartPage().deleteProductFromCart();
-        boolean result = Pages.cartPage().isCartEmpty();
+        result = Pages.cartPage().isCartEmpty();
 
-        if (result)
-            Actions.browserStackActions().setAppTestStatus
-                    (userName, accessKey, true, "Test completed successfully");
-        else
-            Actions.browserStackActions().setAppTestStatus
-                    (userName, accessKey, false, "Cart page do not contain keyword: " + keyword);
-
-        Assert.assertTrue(result,"Cart is not empty");
+        Assert.assertTrue(result,erMassage);
     }
 
 }
