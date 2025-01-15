@@ -1,5 +1,4 @@
-package com.demo.actions;
-
+package com.demo.Data;
 
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
@@ -12,9 +11,9 @@ import java.util.List;
 
 import static io.restassured.RestAssured.*;
 
-public class RestAssureActions {
+public class RestAssureHelper {
 
-    public List<String> getRandomNumbers(String min, String max, String count) {
+    public static List<String> getRandomNumbers(String min, String max, String count) {
         installSpec(requestSpec("http://www.randomnumberapi.com/api/v1.0/randomnumber"), responseSpecOK200());
         return given()
                 .when()
@@ -22,23 +21,32 @@ public class RestAssureActions {
                 .then()
                 .extract().body().jsonPath().get();
     }
-    public RequestSpecification requestSpec(String url) {
+    public static int getRandomNumber(String min, String max) {
+        installSpec(requestSpec("http://www.randomnumberapi.com/api/v1.0/randomnumber"), responseSpecOK200());
+        return given()
+                .when()
+                .get(String.format("?min=%s&max=%s",min,max))
+                .then()
+                .extract().body().jsonPath().get("[0]");
+    }
+
+    public static RequestSpecification requestSpec(String url) {
         return new RequestSpecBuilder()
                 .setBaseUri(url)
                 .setContentType(ContentType.TEXT)
                 .build();
     }
-    public ResponseSpecification responseSpecOK200() {
+    public static ResponseSpecification responseSpecOK200() {
         return new ResponseSpecBuilder()
                 .expectStatusCode(200)
                 .build();
     }
-    public ResponseSpecification responseSpecError400() {
+    public static ResponseSpecification responseSpecError400() {
         return new ResponseSpecBuilder()
                 .expectStatusCode(400)
                 .build();
     }
-    public void installSpec(RequestSpecification request, ResponseSpecification response){
+    public static void installSpec(RequestSpecification request, ResponseSpecification response){
         RestAssured.requestSpecification = request;
         RestAssured.responseSpecification = response;
     }

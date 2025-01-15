@@ -27,25 +27,25 @@ public class HomePage extends PageTools {
     public void clickStartInfoButton() {
         click(startInfoButton);
     }
-    private void clickClearButton() {
+    protected void clickClearButton() {
         click(clearButton);
     }
-    private void clickEqualButton() {
+    protected void clickEqualButton() {
         click(equalButton);
     }
-    private void fillTextField(String value) {
+    protected void fillTextField(String value) {
         typeWithoutWipe(value,textField);
     }
-    private void clickPlusButton() {
+    protected void clickPlusButton() {
         click(plusButton);
     }
-    private void clickMinusButton() {
+    protected void clickMinusButton() {
         click(minusButton);
     }
-    private void clickMultipleButton() {
+    protected void clickMultipleButton() {
         click(multipleButton);
     }
-    private void clickDivideButton() {
+    protected void clickDivideButton() {
         click(divideButton);
     }
 
@@ -73,64 +73,7 @@ public class HomePage extends PageTools {
         fillTextField(value2);
         clickEqualButton();
     }
-    public String randomFourNumbersTest(){
-        List<String> numbers = Actions.restAssureActions().getRandomNumbers("100","1000","4");
-        return complexOperation(String.format("%s - %s + %s * %s", numbers.get(0), numbers.get(1), numbers.get(2), numbers.get(3)));
-    }
-    private String complexOperation(String expression) {
-        //Split the expressions on tokens(Operands and operators)
-        List<String> tokens = new ArrayList<>(List.of(expression.split(" ")));
-        String result="";
-
-        //Do a multiplication and divide operations
-        for (int i = 0; i < tokens.size(); i++) {
-            String token = tokens.get(i);
-            if (token.equals("*") || token.equals("/")) {
-                String leftOperand = tokens.get(i - 1);
-                String rightOperand = tokens.get(i + 1);
-
-                fillTextField(leftOperand);
-                if (token.equals("*")) {
-                    clickMultipleButton();
-                } else {
-                    clickDivideButton();
-                }
-                fillTextField(rightOperand);
-                clickEqualButton();
-
-                result = getResult();
-                tokens.set(i - 1, result);
-                tokens.remove(i);
-                tokens.remove(i);
-                i -= 1;
-                clickClearButton();
-            }
-        }
-
-        //Do a summary and subtraction operations
-        for (int i = 0; i < tokens.size(); i++) {
-            String token = tokens.get(i);
-            if (token.equals("+") || token.equals("-")) {
-                String leftOperand = tokens.get(i - 1);
-                String rightOperand = tokens.get(i + 1);
-
-                fillTextField(leftOperand);
-                if (token.equals("+")) {
-                    clickPlusButton();
-                } else {
-                    clickMinusButton();
-                }
-                fillTextField(rightOperand);
-                clickEqualButton();
-
-                result = getResult();
-                tokens.set(i - 1, result);
-                tokens.remove(i);
-                tokens.remove(i);
-                i -= 1;
-                clickClearButton();
-            }
-        }
-        return result;
+    public String complexOperation(String expression) {
+        return Actions.calculatorActions().doExpression(expression);
     }
 }
