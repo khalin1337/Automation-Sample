@@ -10,11 +10,13 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
+
 public class CalculatorTest extends BaseAppTest {
 
     @Test
     public void randomFourNumbersTest() {
         Pages.homePage().clickStartInfoButton();
+        RestAssureHelper.installSpec(RestAssureHelper.requestSpec("http://www.randomnumberapi.com/api/v1.0/randomnumber"), RestAssureHelper.responseSpecOK200());
 
         int number1 = RestAssureHelper.getRandomNumber("100","1000");
         int number2 = RestAssureHelper.getRandomNumber("100","1000");

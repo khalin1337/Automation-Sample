@@ -14,7 +14,6 @@ import static io.restassured.RestAssured.*;
 public class RestAssureHelper {
 
     public static List<String> getRandomNumbers(String min, String max, String count) {
-        installSpec(requestSpec("http://www.randomnumberapi.com/api/v1.0/randomnumber"), responseSpecOK200());
         return given()
                 .when()
                 .get(String.format("?min=%s&max=%s&count=%s",min,max,count))
@@ -22,7 +21,6 @@ public class RestAssureHelper {
                 .extract().body().jsonPath().get();
     }
     public static int getRandomNumber(String min, String max) {
-        installSpec(requestSpec("http://www.randomnumberapi.com/api/v1.0/randomnumber"), responseSpecOK200());
         return given()
                 .when()
                 .get(String.format("?min=%s&max=%s",min,max))
