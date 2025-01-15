@@ -110,6 +110,19 @@
             <version>${junit.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>5.2.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>5.2.1</version>
+            <scope>compile</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
