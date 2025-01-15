@@ -7,6 +7,7 @@ public class Actions {
     private static BookActions bookAktions;
     private static BrowserStackActions browserStackActions;
     private static MainActions mainActions;
+    private static RestAssureActions restAssureActions;
 
     /**
      * This function returns an instance of `LoginActions`
@@ -32,6 +33,12 @@ public class Actions {
             browserStackActions = new BrowserStackActions();
         }
         return browserStackActions;
+    }
+    public static RestAssureActions restAssureActions() {
+            if (restAssureActions == null) {
+                restAssureActions = new RestAssureActions();
+            }
+            return restAssureActions;
     }
 
 }
