@@ -5,6 +5,7 @@ public class Actions {
      * Page actions
      */
     private static MainActions mainActions;
+    private static SignUpAction signUpAction;
     /**
      * This function returns an instance of `MainActions`
      */
@@ -14,4 +15,11 @@ public class Actions {
         }
         return mainActions;
     }
+    public static SignUpAction signUpAction() {
+        if (signUpAction == null) {
+            signUpAction = new SignUpAction();
+        }
+        return signUpAction;
+    }
+
 }

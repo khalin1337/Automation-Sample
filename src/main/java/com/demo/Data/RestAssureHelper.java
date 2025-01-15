@@ -12,26 +12,10 @@ import java.util.List;
 import static io.restassured.RestAssured.*;
 
 public class RestAssureHelper {
-
-    public static List<String> getRandomNumbers(String min, String max, String count) {
-        return given()
-                .when()
-                .get(String.format("?min=%s&max=%s&count=%s",min,max,count))
-                .then()
-                .extract().body().jsonPath().get();
-    }
-    public static int getRandomNumber(String min, String max) {
-        return given()
-                .when()
-                .get(String.format("?min=%s&max=%s",min,max))
-                .then()
-                .extract().body().jsonPath().get("[0]");
-    }
-
     public static RequestSpecification requestSpec(String url) {
         return new RequestSpecBuilder()
                 .setBaseUri(url)
-                .setContentType(ContentType.TEXT)
+                .setContentType(ContentType.JSON)
                 .build();
     }
     public static ResponseSpecification responseSpecOK200() {
