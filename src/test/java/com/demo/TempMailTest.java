@@ -7,10 +7,14 @@ import com.demo.pages.Pages;
 import com.demo.utils.DateTime;
 import com.demo.utils.Generator;
 import com.demo.utils.SelenideTools;
+import io.qameta.allure.*;
 import io.restassured.RestAssured;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+@Epic("Pinterest sign up test")
+@Feature("Temp mail test")
+@Owner("QA Khalin Yevhen")
 public class TempMailTest extends BaseTest {
     @Test
     public void tempMailTest(){
