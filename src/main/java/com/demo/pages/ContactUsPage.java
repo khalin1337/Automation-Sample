@@ -4,9 +4,7 @@ import com.demo.actions.Actions;
 import com.demo.core.base.PageTools;
 import org.openqa.selenium.By;
 
-import java.util.List;
-
-public class HomePage extends PageTools {
+public class ContactUsPage extends PageTools {
 
     private final By nameField = By.xpath("//div[@class='et_pb_contact']//input[@id='et_pb_contact_name_0']");
     private final By emailField = By.xpath("//div[@class='et_pb_contact']//input[@id='et_pb_contact_email_0']");

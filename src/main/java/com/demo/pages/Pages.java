@@ -6,16 +6,16 @@ public class Pages extends AllureLogger {
     /**
      * Pages
      */
-    private static HomePage homePage;
+    private static ContactUsPage contactUsPage;
 
     /**
      * This function return an instance of `NavigationPage`
      */
 
-    public static HomePage homePage() {
-        if (homePage == null) {
-            homePage = new HomePage();
+    public static ContactUsPage homePage() {
+        if (contactUsPage == null) {
+            contactUsPage = new ContactUsPage();
         }
-        return homePage;
+        return contactUsPage;
     }
 }

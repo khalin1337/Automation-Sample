@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 @Feature("Contact us tests")
 @Owner("QA Khalin Yevhen")
 public class ContactUsTest extends BaseTest {
-    /*@Test()
+    @Test()
     public void successTest() {
         Pages.homePage().passCaptcha();
         Pages.homePage().fillEmailField("peker75468@halbov.com");//Temp Mail(because api for random mail has reached limit)
@@ -24,7 +24,7 @@ public class ContactUsTest extends BaseTest {
         SelenideTools.sleep(20);
         Pages.homePage().clickSubmitButton();
         Assert.assertTrue(Pages.homePage().isResultSuccess(),"Form was not sent");//Work
-    }*/
+    }
     @Test
     public void allFieldsEmpty() {
         Pages.homePage().clickSubmitButton();
