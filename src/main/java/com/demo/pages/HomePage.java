@@ -13,22 +13,23 @@ public class HomePage extends PageTools {
     private final By registerFormSubmitButton = By.xpath("//div[@data-test-id='registerFormSubmitButton']/button");
     private final By welcomingForm = By.xpath("//div[@data-test-id='nux-welcome-step-container']");
 
-    protected void clickSignUpButton() {
+    public void clickSignUpButton() {
         click(signUpButton);
     }
-    protected void clickRegisterFormSubmitButton() {
+    public void clickRegisterFormSubmitButton() {
         click(registerFormSubmitButton);
     }
-    protected void fillEmailField(String value){
+    public void fillEmailField(String value){
         type(value,emailField);
     }
-    protected void fillBirthDateField(String value){
+    public void fillBirthDateField(String value){
         type(value, birthDateField);
     }
-    protected void fillPasswordField(String value){
+    public void fillPasswordField(String value){
         type(value,passwordField);
     }
     public boolean isRegistrationSuccess() {
+        SelenideTools.sleep(10);
        return isElementVisible(welcomingForm);
     }
 }

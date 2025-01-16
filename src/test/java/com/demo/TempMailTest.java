@@ -18,18 +18,10 @@ import org.testng.annotations.Test;
 public class TempMailTest extends BaseTest {
     @Test
     public void tempMailTest(){
-        RestAssureHelper.installSpec(RestAssureHelper.requestSpec("https://temp-mail-api3.p.rapidapi.com"),RestAssureHelper.responseSpecOK200());
-        String randomEmail = RestAssured
-                .given()
-                .header("x-rapidapi-key", "My_api") // Ваш API-ключ
-                .header("x-rapidapi-host", "temp-mail-api3.p.rapidapi.com") // Хост API
-                .when()
-                .get("/email/random")
-                .then()
-                .extract().body().jsonPath().getString("email");
-        System.out.println("Відповідь сервера: " + randomEmail);
+        String randomEmail = RestAssureHelper.getRandomMail();
+
         Actions.signUpAction().registration(randomEmail, Generator.genString(10), "12.12.2001");
-        SelenideTools.sleep(10);
+
         Assert.assertTrue(Pages.homePage().isRegistrationSuccess(),"Registration is failed");
     }
 }
