@@ -1,13 +1,14 @@
 package com.demo;
 
+import com.codeborne.selenide.Selenide;
 import com.demo.core.base.BaseTest;
 import com.demo.pages.Pages;
+import com.demo.utils.Constants;
 import com.demo.utils.Generator;
 import com.demo.utils.SelenideTools;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
-import org.openqa.selenium.devtools.v85.page.Page;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -17,6 +18,7 @@ import org.testng.annotations.Test;
 public class ContactUsTest extends BaseTest {
     @Test()
     public void successTest() {
+        SelenideTools.openUrl(Constants.ContactUsURL);
         Pages.homePage().passCaptcha();
         Pages.homePage().fillEmailField("peker75468@halbov.com");//Temp Mail(because api for random mail has reached limit)
         Pages.homePage().fillTextField("Test");
@@ -27,6 +29,8 @@ public class ContactUsTest extends BaseTest {
     }
     @Test
     public void allFieldsEmpty() {
+        SelenideTools.openUrl(Constants.ContactUsURL);
+
         Pages.homePage().clickSubmitButton();
 
         Assert.assertTrue(Pages.homePage().isErrorContainMessageEmptyCaptchaField(),"Error message does not contain message about empty captcha field");
@@ -36,6 +40,8 @@ public class ContactUsTest extends BaseTest {
     }
     @Test
     public void emptyNameField() {
+        SelenideTools.openUrl(Constants.ContactUsURL);
+
         Pages.homePage().fillTextField(Generator.genString(100));
         Pages.homePage().passCaptcha();
         Pages.homePage().fillEmailField(Generator.genEmail());
@@ -45,6 +51,8 @@ public class ContactUsTest extends BaseTest {
     }
     @Test
     public void emptyEmailField() {
+        SelenideTools.openUrl(Constants.ContactUsURL);
+
         Pages.homePage().fillTextField(Generator.genString(100));
         Pages.homePage().passCaptcha();
         Pages.homePage().fillNameField(Generator.genString(10));
@@ -54,6 +62,8 @@ public class ContactUsTest extends BaseTest {
     }
     @Test
     public void emptyTextField() {
+        SelenideTools.openUrl(Constants.ContactUsURL);
+
         Pages.homePage().fillNameField(Generator.genString(10));
         Pages.homePage().passCaptcha();
         Pages.homePage().fillEmailField(Generator.genEmail());
@@ -63,6 +73,8 @@ public class ContactUsTest extends BaseTest {
     }
     @Test
     public void emptyCaptchaField() {
+        SelenideTools.openUrl(Constants.ContactUsURL);
+
         Pages.homePage().fillTextField(Generator.genString(100));
         Pages.homePage().fillNameField(Generator.genString(10));
         Pages.homePage().fillEmailField(Generator.genEmail());
@@ -72,6 +84,8 @@ public class ContactUsTest extends BaseTest {
     }
     @Test
     public void incorrectEmailField() {
+        SelenideTools.openUrl(Constants.ContactUsURL);
+
         Pages.homePage().fillTextField(Generator.genString(100));
         Pages.homePage().fillNameField(Generator.genString(10));
         Pages.homePage().fillEmailField("Error");
@@ -81,6 +95,8 @@ public class ContactUsTest extends BaseTest {
     }
     @Test
     public void incorrectCaptchaField() {
+        SelenideTools.openUrl(Constants.ContactUsURL);
+
         Pages.homePage().fillTextField(Generator.genString(100));
         Pages.homePage().fillNameField(Generator.genString(10));
         Pages.homePage().fillEmailField(Generator.genEmail());
@@ -91,6 +107,8 @@ public class ContactUsTest extends BaseTest {
     }
     @Test
     public void incorrectCaptchaAndMailField() {
+        SelenideTools.openUrl(Constants.ContactUsURL);
+
         Pages.homePage().fillTextField(Generator.genString(100));
         Pages.homePage().fillNameField(Generator.genString(10));
         Pages.homePage().fillEmailField("Error");
@@ -102,6 +120,8 @@ public class ContactUsTest extends BaseTest {
     }
     @Test
     public void incorrectCaptchaAndMailOtherFieldsEmpty() {
+        SelenideTools.openUrl(Constants.ContactUsURL);
+
         Pages.homePage().fillEmailField("Error");
         Pages.homePage().failCaptcha();
         Pages.homePage().clickSubmitButton();
@@ -113,6 +133,8 @@ public class ContactUsTest extends BaseTest {
     }
     @Test
     public void incorrectMailAndOtherFieldsEmpty() {
+        SelenideTools.openUrl(Constants.ContactUsURL);
+
         Pages.homePage().fillEmailField("Error");
         Pages.homePage().clickSubmitButton();
 
