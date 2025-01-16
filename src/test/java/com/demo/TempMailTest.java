@@ -29,6 +29,7 @@ public class TempMailTest extends BaseTest {
                 .extract().body().jsonPath().getString("email");
         System.out.println("Відповідь сервера: " + randomEmail);
         Actions.signUpAction().registration(randomEmail, Generator.genString(10), "12.12.2001");
+        SelenideTools.sleep(10);
         Assert.assertTrue(Pages.homePage().isRegistrationSuccess(),"Registration is failed");
     }
 }
