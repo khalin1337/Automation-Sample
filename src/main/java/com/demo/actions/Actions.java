@@ -6,6 +6,7 @@ public class Actions {
      */
     private static MainActions mainActions;
     private static SignUpAction signUpAction;
+    private static RestAssureActions restAssureActions;
     /**
      * This function returns an instance of `MainActions`
      */
@@ -20,6 +21,12 @@ public class Actions {
             signUpAction = new SignUpAction();
         }
         return signUpAction;
+    }
+    public static RestAssureActions restAssureActions() {
+        if (restAssureActions == null) {
+            restAssureActions = new RestAssureActions();
+        }
+        return restAssureActions;
     }
 
 }

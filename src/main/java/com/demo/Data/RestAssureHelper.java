@@ -1,5 +1,6 @@
 package com.demo.Data;
 
+import com.demo.actions.Actions;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
@@ -22,14 +23,7 @@ public class RestAssureHelper {
     }
     public static String getRandomMail() {
         installSpec(requestSpec("https://temp-mail-api3.p.rapidapi.com"),responseSpecOK200());
-        String randomEmail = RestAssured
-                .given()
-                .header("x-rapidapi-key", "My_api") // Ваш API-ключ
-                .header("x-rapidapi-host", "temp-mail-api3.p.rapidapi.com") // Хост API
-                .when()
-                .get("/email/random")
-                .then()
-                .extract().body().jsonPath().getString("email");
+        String randomEmail = Actions.restAssureActions().getMail();
         System.out.println("Відповідь сервера: " + randomEmail);
         return randomEmail;
     }
