@@ -22,7 +22,6 @@ public class RestAssureHelper {
                 .build();
     }
     public static String getRandomMail() {
-        installSpec(requestSpec("https://temp-mail-api3.p.rapidapi.com"),responseSpecOK200());
         String randomEmail = Actions.restAssureActions().getMail();
         System.out.println("Відповідь сервера: " + randomEmail);
         return randomEmail;
