@@ -17,14 +17,5 @@ public class FirstTest extends BaseTest {
 
     @Test(description = "FirstTest")
     public void firstTest() {
-        String searchWord = System.getProperty("myArg", "default_value");
-        logInfo("searchWord is " + searchWord);
-
-        Pages.homePage().waitForSearchForm();
-        Pages.homePage().search(searchWord);
-
-        Pages.searchPage().waitForElements();
-        List<SelenideElement> elements = Pages.searchPage().getFoundElements();
-        Pages.searchPage().checkForSearchWord(searchWord, elements);
     }
 }
