@@ -39,6 +39,6 @@ build/
 /allure-results/
 /screenshots/
 __MACOSX/
-
+/logs/
 /.allure/
 /.idea/
