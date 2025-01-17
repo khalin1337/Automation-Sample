@@ -28,7 +28,7 @@ public class ContactUsTest extends BaseTest {
         Assert.assertTrue(Pages.homePage().isResultSuccess(),"Form was not sent");//Work
     }
     @Test
-    public void allFieldsEmpty() {
+    public void allFieldsEmptyTest() {
         SelenideTools.openUrl(Constants.ContactUsURL);
 
         Pages.homePage().clickSubmitButton();
@@ -39,7 +39,7 @@ public class ContactUsTest extends BaseTest {
         Assert.assertTrue(Pages.homePage().isErrorContainMessageEmptyTextField(),"Error message does not contain message about empty text field");//Work
     }
     @Test
-    public void emptyNameField() {
+    public void emptyNameFieldTest() {
         SelenideTools.openUrl(Constants.ContactUsURL);
 
         Pages.homePage().fillTextField(Generator.genString(100));
@@ -50,7 +50,7 @@ public class ContactUsTest extends BaseTest {
         Assert.assertTrue(Pages.homePage().isErrorContainMessageEmptyNameField(),"Error message does not contain message about empty name field");//Work
     }
     @Test
-    public void emptyEmailField() {
+    public void emptyEmailFieldTest() {
         SelenideTools.openUrl(Constants.ContactUsURL);
 
         Pages.homePage().fillTextField(Generator.genString(100));
@@ -61,7 +61,7 @@ public class ContactUsTest extends BaseTest {
         Assert.assertTrue(Pages.homePage().isErrorContainMessageEmptyMailField(),"Error message does not contain message about empty Email field");//Work
     }
     @Test
-    public void emptyTextField() {
+    public void emptyTextFieldTest() {
         SelenideTools.openUrl(Constants.ContactUsURL);
 
         Pages.homePage().fillNameField(Generator.genString(10));
@@ -72,7 +72,7 @@ public class ContactUsTest extends BaseTest {
         Assert.assertTrue(Pages.homePage().isErrorContainMessageEmptyTextField(),"Error message does not contain message about empty Text field");//Work
     }
     @Test
-    public void emptyCaptchaField() {
+    public void emptyCaptchaFieldTest() {
         SelenideTools.openUrl(Constants.ContactUsURL);
 
         Pages.homePage().fillTextField(Generator.genString(100));
@@ -83,7 +83,7 @@ public class ContactUsTest extends BaseTest {
         Assert.assertTrue(Pages.homePage().isErrorContainMessageEmptyCaptchaField(),"Error message does not contain message about empty captcha field");//Work
     }
     @Test
-    public void incorrectEmailField() {
+    public void incorrectEmailFieldTest() {
         SelenideTools.openUrl(Constants.ContactUsURL);
 
         Pages.homePage().fillTextField(Generator.genString(100));
@@ -94,7 +94,7 @@ public class ContactUsTest extends BaseTest {
         Assert.assertTrue(Pages.homePage().isErrorContainMessageIncorrectEmailField(),"Error message does not contain message about incorrect email field");//Work
     }
     @Test
-    public void incorrectCaptchaField() {
+    public void incorrectCaptchaFieldTest() {
         SelenideTools.openUrl(Constants.ContactUsURL);
 
         Pages.homePage().fillTextField(Generator.genString(100));
@@ -106,7 +106,7 @@ public class ContactUsTest extends BaseTest {
         Assert.assertTrue(Pages.homePage().isErrorContainMessageIncorrectCaptchaField(),"Error message does not contain message about incorrect captcha field");//Work
     }
     @Test
-    public void incorrectCaptchaAndMailField() {
+    public void incorrectCaptchaAndMailFieldsTest() {
         SelenideTools.openUrl(Constants.ContactUsURL);
 
         Pages.homePage().fillTextField(Generator.genString(100));
@@ -119,7 +119,7 @@ public class ContactUsTest extends BaseTest {
         Assert.assertTrue(Pages.homePage().isErrorContainMessageIncorrectEmailField(),"Error message does not contain message about incorrect email field");//Work
     }
     @Test
-    public void incorrectCaptchaAndMailOtherFieldsEmpty() {
+    public void incorrectCaptchaAndMailOtherFieldsEmptyTest() {
         SelenideTools.openUrl(Constants.ContactUsURL);
 
         Pages.homePage().fillEmailField("Error");
@@ -132,7 +132,7 @@ public class ContactUsTest extends BaseTest {
         Assert.assertTrue(Pages.homePage().isErrorContainMessageEmptyTextField(),"Error message does not contain message about empty text field");//Work
     }
     @Test
-    public void incorrectMailAndOtherFieldsEmpty() {
+    public void incorrectMailAndOtherFieldsEmptyTest() {
         SelenideTools.openUrl(Constants.ContactUsURL);
 
         Pages.homePage().fillEmailField("Error");
