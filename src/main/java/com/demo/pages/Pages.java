@@ -8,6 +8,7 @@ public class Pages extends AllureLogger {
      */
     private static ContactUsPage contactUsPage;
     private static GameTesterPage gameTesterPage;
+    private static PilotProjectPage pilotProjectPage;
     private static JuniorSoftwareTesterPage juniorSoftwareTesterPage;
     private static AutomatedTestEngineerPage automatedTestEngineerPage;
 
@@ -39,5 +40,10 @@ public class Pages extends AllureLogger {
         }
         return automatedTestEngineerPage;
     }
-
+    public static PilotProjectPage pilotProjectPage() {
+        if (pilotProjectPage == null) {
+            pilotProjectPage = new PilotProjectPage();
+        }
+        return pilotProjectPage;
+    }
 }

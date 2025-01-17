@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 @Feature("Junior Software Tester tests")
 @Owner("QA Khalin Yevhen")
 public class JuniorSoftwareTesterTest extends BaseTest {
-     @Test
+    @Test
     public void successTest() {
         SelenideTools.openUrl(Constants.JuniorSoftwareTesterURL);
 
@@ -28,7 +28,7 @@ public class JuniorSoftwareTesterTest extends BaseTest {
         Pages.juniorSoftwareTesterPage().uploadTestCV("src\\main\\java\\com\\demo\\Data\\TestCV.docx");
         SelenideTools.sleep(10);
         Pages.juniorSoftwareTesterPage().clickSubmitButton();
-        SelenideTools.sleep(2);
+         SelenideTools.sleep(2);
 
         Assert.assertTrue(Pages.juniorSoftwareTesterPage().isResultSuccess(),"Form was not sent");//Work
     }
@@ -43,7 +43,6 @@ public class JuniorSoftwareTesterTest extends BaseTest {
        Pages.juniorSoftwareTesterPage().fillTextField(Generator.genString(100));
        Pages.juniorSoftwareTesterPage().fillPhoneField(Generator.genMobilePhone(10));
        Pages.juniorSoftwareTesterPage().uploadTestCV("src\\main\\java\\com\\demo\\Data\\TestWrongCV.txt");
-       SelenideTools.sleep(2);
 
        Assert.assertTrue(Pages.juniorSoftwareTesterPage().isErrorContainMessageIncorrectFileFormat(),"Error message does not contain message about wrong file format");//Work
    }
@@ -58,7 +57,6 @@ public class JuniorSoftwareTesterTest extends BaseTest {
        Pages.juniorSoftwareTesterPage().fillTextField(Generator.genString(100));
        Pages.juniorSoftwareTesterPage().fillPhoneField(Generator.genMobilePhone(10));
        Pages.juniorSoftwareTesterPage().clickSubmitButton();
-       SelenideTools.sleep(2);
 
        Assert.assertTrue(Pages.juniorSoftwareTesterPage().isErrorContainMessageNotUploadFile(),"Error message does not contain message about missing file");//Work
    }
@@ -69,7 +67,6 @@ public class JuniorSoftwareTesterTest extends BaseTest {
 
        Pages.juniorSoftwareTesterPage().clickApplicationButton();
        Pages.homePage().clickSubmitButton();
-       SelenideTools.sleep(2);
 
        Assert.assertTrue(Pages.juniorSoftwareTesterPage().isErrorContainMessageEmptyPhoneField(),
                "Error message does not contain message about empty phone field");
@@ -95,7 +92,6 @@ public class JuniorSoftwareTesterTest extends BaseTest {
        Pages.juniorSoftwareTesterPage().uploadTestCV("src\\main\\java\\com\\demo\\Data\\TestCV.docx");
        Pages.juniorSoftwareTesterPage().fillPhoneField(Generator.genMobilePhone(10));
        Pages.juniorSoftwareTesterPage().clickSubmitButton();
-       SelenideTools.sleep(2);
 
        Assert.assertTrue(Pages.juniorSoftwareTesterPage().isErrorContainMessageEmptyNameField(),"Error message does not contain message about empty name field");//Work
    }
@@ -111,7 +107,6 @@ public class JuniorSoftwareTesterTest extends BaseTest {
         Pages.juniorSoftwareTesterPage().fillPhoneField(Generator.genMobilePhone(10));
         Pages.juniorSoftwareTesterPage().uploadTestCV("src\\main\\java\\com\\demo\\Data\\TestCV.docx");
         Pages.juniorSoftwareTesterPage().clickSubmitButton();
-        SelenideTools.sleep(2);
 
         Assert.assertTrue(Pages.juniorSoftwareTesterPage().isErrorContainMessageEmptyMailField(),"Error message does not contain message about empty Email field");//Work
     }
@@ -127,7 +122,6 @@ public class JuniorSoftwareTesterTest extends BaseTest {
         Pages.juniorSoftwareTesterPage().fillTextField(Generator.genString(100));
         Pages.juniorSoftwareTesterPage().uploadTestCV("src\\main\\java\\com\\demo\\Data\\TestCV.docx");
         Pages.juniorSoftwareTesterPage().clickSubmitButton();
-        SelenideTools.sleep(2);
 
         Assert.assertTrue(Pages.juniorSoftwareTesterPage().isErrorContainMessageEmptyPhoneField(),"Error message does not contain message about empty phone field");//Work
     }
@@ -143,7 +137,6 @@ public class JuniorSoftwareTesterTest extends BaseTest {
         Pages.juniorSoftwareTesterPage().fillPhoneField(Generator.genMobilePhone(10));
         Pages.juniorSoftwareTesterPage().uploadTestCV("src\\main\\java\\com\\demo\\Data\\TestCV.docx");
         Pages.juniorSoftwareTesterPage().clickSubmitButton();
-        SelenideTools.sleep(2);
 
         Assert.assertTrue(Pages.juniorSoftwareTesterPage().isErrorContainMessageEmptyTextField(),"Error message does not contain message about empty text field");//Work
     }
@@ -159,7 +152,6 @@ public class JuniorSoftwareTesterTest extends BaseTest {
         Pages.juniorSoftwareTesterPage().fillPhoneField(Generator.genMobilePhone(10));
         Pages.juniorSoftwareTesterPage().uploadTestCV("src\\main\\java\\com\\demo\\Data\\TestCV.docx");
         Pages.juniorSoftwareTesterPage().clickSubmitButton();
-        SelenideTools.sleep(2);
 
         Assert.assertTrue(Pages.juniorSoftwareTesterPage().isErrorContainMessageEmptyCaptchaField(),"Error message does not contain message about empty captcha field");//Work
     }
@@ -176,7 +168,6 @@ public class JuniorSoftwareTesterTest extends BaseTest {
         Pages.juniorSoftwareTesterPage().fillPhoneField(Generator.genMobilePhone(10));
         Pages.juniorSoftwareTesterPage().uploadTestCV("src\\main\\java\\com\\demo\\Data\\TestCV.docx");
         Pages.juniorSoftwareTesterPage().clickSubmitButton();
-        SelenideTools.sleep(2);
 
         Assert.assertTrue(Pages.juniorSoftwareTesterPage().isErrorContainMessageIncorrectCaptchaField(),"Error message does not contain message about incorrect captcha field");//Work
     }
@@ -193,7 +184,6 @@ public class JuniorSoftwareTesterTest extends BaseTest {
         Pages.juniorSoftwareTesterPage().fillPhoneField(Generator.genMobilePhone(10));
         Pages.juniorSoftwareTesterPage().uploadTestCV("src\\main\\java\\com\\demo\\Data\\TestCV.docx");
         Pages.juniorSoftwareTesterPage().clickSubmitButton();
-        SelenideTools.sleep(2);
 
         Assert.assertTrue(Pages.juniorSoftwareTesterPage().isErrorContainMessageIncorrectEmailField(),"Error message does not contain message about incorrect email field");//Work
     }

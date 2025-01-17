@@ -43,7 +43,6 @@ public class GameTesterTest extends BaseTest {
        Pages.gameTesterPage().fillTextField(Generator.genString(100));
        Pages.gameTesterPage().fillPhoneField(Generator.genMobilePhone(10));
        Pages.gameTesterPage().uploadTestCV("src\\main\\java\\com\\demo\\Data\\TestWrongCV.txt");
-       SelenideTools.sleep(2);
 
        Assert.assertTrue(Pages.gameTesterPage().isErrorContainMessageIncorrectFileFormat(),"Error message does not contain message about wrong file format");//Work
    }
@@ -58,7 +57,6 @@ public class GameTesterTest extends BaseTest {
        Pages.gameTesterPage().fillTextField(Generator.genString(100));
        Pages.gameTesterPage().fillPhoneField(Generator.genMobilePhone(10));
        Pages.gameTesterPage().clickSubmitButton();
-       SelenideTools.sleep(2);
 
        Assert.assertTrue(Pages.gameTesterPage().isErrorContainMessageNotUploadFile(),"Error message does not contain message about missing file");//Work
    }
@@ -69,7 +67,6 @@ public class GameTesterTest extends BaseTest {
 
        Pages.gameTesterPage().clickApplicationButton();
        Pages.homePage().clickSubmitButton();
-       SelenideTools.sleep(2);
 
        Assert.assertTrue(Pages.gameTesterPage().isErrorContainMessageEmptyPhoneField(),
                "Error message does not contain message about empty phone field");
@@ -95,7 +92,6 @@ public class GameTesterTest extends BaseTest {
        Pages.gameTesterPage().uploadTestCV("src\\main\\java\\com\\demo\\Data\\TestCV.docx");
        Pages.gameTesterPage().fillPhoneField(Generator.genMobilePhone(10));
        Pages.gameTesterPage().clickSubmitButton();
-       SelenideTools.sleep(2);
 
        Assert.assertTrue(Pages.gameTesterPage().isErrorContainMessageEmptyNameField(),"Error message does not contain message about empty name field");//Work
    }
@@ -111,7 +107,6 @@ public class GameTesterTest extends BaseTest {
         Pages.gameTesterPage().fillPhoneField(Generator.genMobilePhone(10));
         Pages.gameTesterPage().uploadTestCV("src\\main\\java\\com\\demo\\Data\\TestCV.docx");
         Pages.gameTesterPage().clickSubmitButton();
-        SelenideTools.sleep(2);
 
         Assert.assertTrue(Pages.gameTesterPage().isErrorContainMessageEmptyMailField(),"Error message does not contain message about empty Email field");//Work
     }
@@ -127,7 +122,6 @@ public class GameTesterTest extends BaseTest {
         Pages.gameTesterPage().fillTextField(Generator.genString(100));
         Pages.gameTesterPage().uploadTestCV("src\\main\\java\\com\\demo\\Data\\TestCV.docx");
         Pages.gameTesterPage().clickSubmitButton();
-        SelenideTools.sleep(2);
 
         Assert.assertTrue(Pages.gameTesterPage().isErrorContainMessageEmptyPhoneField(),"Error message does not contain message about empty phone field");//Work
     }
@@ -143,7 +137,6 @@ public class GameTesterTest extends BaseTest {
         Pages.gameTesterPage().fillPhoneField(Generator.genMobilePhone(10));
         Pages.gameTesterPage().uploadTestCV("src\\main\\java\\com\\demo\\Data\\TestCV.docx");
         Pages.gameTesterPage().clickSubmitButton();
-        SelenideTools.sleep(2);
 
         Assert.assertTrue(Pages.gameTesterPage().isErrorContainMessageEmptyTextField(),"Error message does not contain message about empty text field");//Work
     }
@@ -159,7 +152,6 @@ public class GameTesterTest extends BaseTest {
         Pages.gameTesterPage().fillPhoneField(Generator.genMobilePhone(10));
         Pages.gameTesterPage().uploadTestCV("src\\main\\java\\com\\demo\\Data\\TestCV.docx");
         Pages.gameTesterPage().clickSubmitButton();
-        SelenideTools.sleep(2);
 
         Assert.assertTrue(Pages.gameTesterPage().isErrorContainMessageEmptyCaptchaField(),"Error message does not contain message about empty captcha field");//Work
     }
@@ -176,7 +168,6 @@ public class GameTesterTest extends BaseTest {
         Pages.gameTesterPage().fillPhoneField(Generator.genMobilePhone(10));
         Pages.gameTesterPage().uploadTestCV("src\\main\\java\\com\\demo\\Data\\TestCV.docx");
         Pages.gameTesterPage().clickSubmitButton();
-        SelenideTools.sleep(2);
 
         Assert.assertTrue(Pages.gameTesterPage().isErrorContainMessageIncorrectCaptchaField(),"Error message does not contain message about incorrect captcha field");//Work
     }
@@ -193,7 +184,6 @@ public class GameTesterTest extends BaseTest {
         Pages.gameTesterPage().fillPhoneField(Generator.genMobilePhone(10));
         Pages.gameTesterPage().uploadTestCV("src\\main\\java\\com\\demo\\Data\\TestCV.docx");
         Pages.gameTesterPage().clickSubmitButton();
-        SelenideTools.sleep(2);
 
         Assert.assertTrue(Pages.gameTesterPage().isErrorContainMessageIncorrectEmailField(),"Error message does not contain message about incorrect email field");//Work
     }
